@@ -1562,18 +1562,18 @@ SWIG_Perl_SetModule(swig_module_info *module) {
 #define SWIGTYPE_p_OGRLayerShadow swig_types[28]
 #define SWIGTYPE_p_OGRStyleTableShadow swig_types[29]
 #define SWIGTYPE_p_OSRSpatialReferenceShadow swig_types[30]
-#define SWIGTYPE_p_VSILFILE swig_types[31]
-#define SWIGTYPE_p_VSIStatBufL swig_types[32]
-#define SWIGTYPE_p_VSIWriteFunction swig_types[33]
-#define SWIGTYPE_p_char swig_types[34]
-#define SWIGTYPE_p_double swig_types[35]
-#define SWIGTYPE_p_f_double_p_q_const__char_p_void__int swig_types[36]
-#define SWIGTYPE_p_int swig_types[37]
-#define SWIGTYPE_p_p_GDALDatasetShadow swig_types[38]
-#define SWIGTYPE_p_p_GDALRasterBandShadow swig_types[39]
-#define SWIGTYPE_p_p_GDAL_GCP swig_types[40]
-#define SWIGTYPE_p_p_GUIntBig swig_types[41]
-#define SWIGTYPE_p_p_char swig_types[42]
+#define SWIGTYPE_p_VSIStatBufL swig_types[31]
+#define SWIGTYPE_p_VSIWriteFunction swig_types[32]
+#define SWIGTYPE_p_char swig_types[33]
+#define SWIGTYPE_p_double swig_types[34]
+#define SWIGTYPE_p_f_double_p_q_const__char_p_void__int swig_types[35]
+#define SWIGTYPE_p_int swig_types[36]
+#define SWIGTYPE_p_p_GDALDatasetShadow swig_types[37]
+#define SWIGTYPE_p_p_GDALRasterBandShadow swig_types[38]
+#define SWIGTYPE_p_p_GDAL_GCP swig_types[39]
+#define SWIGTYPE_p_p_GUIntBig swig_types[40]
+#define SWIGTYPE_p_p_char swig_types[41]
+#define SWIGTYPE_p_void swig_types[42]
 static swig_type_info *swig_types[44];
 static swig_module_info swig_module = {swig_types, 43, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
@@ -3132,10 +3132,10 @@ SWIGINTERN void GDALRasterBandShadow_GetBlockSize(GDALRasterBandShadow *self,int
       GDALGetBlockSize(self, pnBlockXSize, pnBlockYSize);
   }
 SWIGINTERN GDALColorInterp GDALRasterBandShadow_GetColorInterpretation(GDALRasterBandShadow *self){
-    return GDALGetRasterColorInterpretation(self);
+    return GDALGetRasterColorInterpretation( self );
   }
 SWIGINTERN GDALColorInterp GDALRasterBandShadow_GetRasterColorInterpretation(GDALRasterBandShadow *self){
-    return GDALGetRasterColorInterpretation(self);
+    return GDALGetRasterColorInterpretation( self );
   }
 SWIGINTERN CPLErr GDALRasterBandShadow_SetColorInterpretation(GDALRasterBandShadow *self,GDALColorInterp val){
     return GDALSetRasterColorInterpretation( self, val );
@@ -3150,16 +3150,16 @@ SWIGINTERN CPLErr GDALRasterBandShadow_SetNoDataValue(GDALRasterBandShadow *self
     return GDALSetRasterNoDataValue( self, d );
   }
 SWIGINTERN CPLErr GDALRasterBandShadow_DeleteNoDataValue(GDALRasterBandShadow *self){
-    return GDALDeleteRasterNoDataValue(self);
+    return GDALDeleteRasterNoDataValue( self );
   }
 SWIGINTERN char const *GDALRasterBandShadow_GetUnitType(GDALRasterBandShadow *self){
-      return GDALGetRasterUnitType(self);
+      return GDALGetRasterUnitType( self );
   }
 SWIGINTERN CPLErr GDALRasterBandShadow_SetUnitType(GDALRasterBandShadow *self,char const *val){
     return GDALSetRasterUnitType( self, val );
   }
 SWIGINTERN char **GDALRasterBandShadow_GetRasterCategoryNames(GDALRasterBandShadow *self){
-    return GDALGetRasterCategoryNames(self);
+    return GDALGetRasterCategoryNames( self );
   }
 SWIGINTERN CPLErr GDALRasterBandShadow_SetRasterCategoryNames(GDALRasterBandShadow *self,char **names){
     return GDALSetRasterCategoryNames( self, names );
@@ -3213,7 +3213,7 @@ SWIGINTERN CPLErr GDALRasterBandShadow_SetStatistics(GDALRasterBandShadow *self,
     return GDALSetRasterStatistics( self, min, max, mean, stddev );
   }
 SWIGINTERN int GDALRasterBandShadow_GetOverviewCount(GDALRasterBandShadow *self){
-    return GDALGetOverviewCount(self);
+    return GDALGetOverviewCount( self );
   }
 SWIGINTERN GDALRasterBandShadow *GDALRasterBandShadow_GetOverview(GDALRasterBandShadow *self,int i){
     return (GDALRasterBandShadow*) GDALGetOverview( self, i );
@@ -7651,7 +7651,7 @@ XS(_wrap_VSIFOpenL) {
       
       
     }
-    ST(argvi) = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_VSILFILE, 0 | SWIG_SHADOW); argvi++ ;
+    ST(argvi) = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 | 0); argvi++ ;
     {
       /* %typemap(freearg) (const char* utf8_path) */
       if (tmpbuf1) Safefree(tmpbuf1);
@@ -7740,7 +7740,7 @@ XS(_wrap_VSIFOpenExL) {
       
       
     }
-    ST(argvi) = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_VSILFILE, 0 | SWIG_SHADOW); argvi++ ;
+    ST(argvi) = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 | 0); argvi++ ;
     {
       /* %typemap(freearg) (const char* utf8_path) */
       if (tmpbuf1) Safefree(tmpbuf1);
@@ -7763,8 +7763,7 @@ XS(_wrap_VSIFOpenExL) {
 XS(_wrap_VSIFEofL) {
   {
     VSILFILE *arg1 = (VSILFILE *) 0 ;
-    void *argp1 = 0 ;
-    int res1 = 0 ;
+    int res1 ;
     int argvi = 0;
     int result;
     dXSARGS;
@@ -7772,11 +7771,10 @@ XS(_wrap_VSIFEofL) {
     if ((items < 1) || (items > 1)) {
       SWIG_croak("Usage: VSIFEofL(fp);");
     }
-    res1 = SWIG_ConvertPtr(ST(0), &argp1,SWIGTYPE_p_VSILFILE, 0 |  0 );
+    res1 = SWIG_ConvertPtr(ST(0),SWIG_as_voidptrptr(&arg1), 0, 0);
     if (!SWIG_IsOK(res1)) {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VSIFEofL" "', argument " "1"" of type '" "VSILFILE *""'"); 
     }
-    arg1 = reinterpret_cast< VSILFILE * >(argp1);
     {
       if (!arg1) {
         SWIG_exception(SWIG_ValueError,"Received a NULL pointer.");
@@ -7819,8 +7817,7 @@ XS(_wrap_VSIFEofL) {
 XS(_wrap_VSIFCloseL) {
   {
     VSILFILE *arg1 = (VSILFILE *) 0 ;
-    void *argp1 = 0 ;
-    int res1 = 0 ;
+    int res1 ;
     int argvi = 0;
     VSI_RETVAL result;
     dXSARGS;
@@ -7828,11 +7825,10 @@ XS(_wrap_VSIFCloseL) {
     if ((items < 1) || (items > 1)) {
       SWIG_croak("Usage: VSIFCloseL(fp);");
     }
-    res1 = SWIG_ConvertPtr(ST(0), &argp1,SWIGTYPE_p_VSILFILE, 0 |  0 );
+    res1 = SWIG_ConvertPtr(ST(0),SWIG_as_voidptrptr(&arg1), 0, 0);
     if (!SWIG_IsOK(res1)) {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VSIFCloseL" "', argument " "1"" of type '" "VSILFILE *""'"); 
     }
-    arg1 = reinterpret_cast< VSILFILE * >(argp1);
     {
       if (!arg1) {
         SWIG_exception(SWIG_ValueError,"Received a NULL pointer.");
@@ -7885,8 +7881,7 @@ XS(_wrap_VSIFSeekL) {
     VSILFILE *arg1 = (VSILFILE *) 0 ;
     long arg2 ;
     int arg3 ;
-    void *argp1 = 0 ;
-    int res1 = 0 ;
+    int res1 ;
     long val2 ;
     int ecode2 = 0 ;
     int val3 ;
@@ -7898,11 +7893,10 @@ XS(_wrap_VSIFSeekL) {
     if ((items < 3) || (items > 3)) {
       SWIG_croak("Usage: VSIFSeekL(fp,offset,whence);");
     }
-    res1 = SWIG_ConvertPtr(ST(0), &argp1,SWIGTYPE_p_VSILFILE, 0 |  0 );
+    res1 = SWIG_ConvertPtr(ST(0),SWIG_as_voidptrptr(&arg1), 0, 0);
     if (!SWIG_IsOK(res1)) {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VSIFSeekL" "', argument " "1"" of type '" "VSILFILE *""'"); 
     }
-    arg1 = reinterpret_cast< VSILFILE * >(argp1);
     ecode2 = SWIG_AsVal_long SWIG_PERL_CALL_ARGS_2(ST(1), &val2);
     if (!SWIG_IsOK(ecode2)) {
       SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "VSIFSeekL" "', argument " "2"" of type '" "long""'");
@@ -7967,8 +7961,7 @@ XS(_wrap_VSIFSeekL) {
 XS(_wrap_VSIFTellL) {
   {
     VSILFILE *arg1 = (VSILFILE *) 0 ;
-    void *argp1 = 0 ;
-    int res1 = 0 ;
+    int res1 ;
     int argvi = 0;
     long result;
     dXSARGS;
@@ -7976,11 +7969,10 @@ XS(_wrap_VSIFTellL) {
     if ((items < 1) || (items > 1)) {
       SWIG_croak("Usage: VSIFTellL(fp);");
     }
-    res1 = SWIG_ConvertPtr(ST(0), &argp1,SWIGTYPE_p_VSILFILE, 0 |  0 );
+    res1 = SWIG_ConvertPtr(ST(0),SWIG_as_voidptrptr(&arg1), 0, 0);
     if (!SWIG_IsOK(res1)) {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VSIFTellL" "', argument " "1"" of type '" "VSILFILE *""'"); 
     }
-    arg1 = reinterpret_cast< VSILFILE * >(argp1);
     {
       if (!arg1) {
         SWIG_exception(SWIG_ValueError,"Received a NULL pointer.");
@@ -8024,8 +8016,7 @@ XS(_wrap_VSIFTruncateL) {
   {
     VSILFILE *arg1 = (VSILFILE *) 0 ;
     long arg2 ;
-    void *argp1 = 0 ;
-    int res1 = 0 ;
+    int res1 ;
     long val2 ;
     int ecode2 = 0 ;
     int argvi = 0;
@@ -8035,11 +8026,10 @@ XS(_wrap_VSIFTruncateL) {
     if ((items < 2) || (items > 2)) {
       SWIG_croak("Usage: VSIFTruncateL(fp,length);");
     }
-    res1 = SWIG_ConvertPtr(ST(0), &argp1,SWIGTYPE_p_VSILFILE, 0 |  0 );
+    res1 = SWIG_ConvertPtr(ST(0),SWIG_as_voidptrptr(&arg1), 0, 0);
     if (!SWIG_IsOK(res1)) {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VSIFTruncateL" "', argument " "1"" of type '" "VSILFILE *""'"); 
     }
-    arg1 = reinterpret_cast< VSILFILE * >(argp1);
     ecode2 = SWIG_AsVal_long SWIG_PERL_CALL_ARGS_2(ST(1), &val2);
     if (!SWIG_IsOK(ecode2)) {
       SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "VSIFTruncateL" "', argument " "2"" of type '" "long""'");
@@ -8100,8 +8090,7 @@ XS(_wrap_VSIFWriteL) {
     size_t arg2 ;
     size_t arg3 ;
     VSILFILE *arg4 = (VSILFILE *) 0 ;
-    void *argp4 = 0 ;
-    int res4 = 0 ;
+    int res4 ;
     int argvi = 0;
     size_t result;
     dXSARGS;
@@ -8116,11 +8105,10 @@ XS(_wrap_VSIFWriteL) {
       arg2 = 1;
       arg3 = len;
     }
-    res4 = SWIG_ConvertPtr(ST(1), &argp4,SWIGTYPE_p_VSILFILE, 0 |  0 );
+    res4 = SWIG_ConvertPtr(ST(1),SWIG_as_voidptrptr(&arg4), 0, 0);
     if (!SWIG_IsOK(res4)) {
       SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "VSIFWriteL" "', argument " "4"" of type '" "VSILFILE *""'"); 
     }
-    arg4 = reinterpret_cast< VSILFILE * >(argp4);
     {
       if (!arg4) {
         SWIG_exception(SWIG_ValueError,"Received a NULL pointer.");
@@ -8166,8 +8154,7 @@ XS(_wrap_VSIFReadL) {
     size_t arg2 ;
     size_t arg3 ;
     VSILFILE *arg4 = (VSILFILE *) 0 ;
-    void *argp4 = 0 ;
-    int res4 = 0 ;
+    int res4 ;
     int argvi = 0;
     SV * _saved[1] ;
     size_t result;
@@ -8185,11 +8172,10 @@ XS(_wrap_VSIFReadL) {
       arg2 = 1;
       arg3 = len;
     }
-    res4 = SWIG_ConvertPtr(ST(1), &argp4,SWIGTYPE_p_VSILFILE, 0 |  0 );
+    res4 = SWIG_ConvertPtr(ST(1),SWIG_as_voidptrptr(&arg4), 0, 0);
     if (!SWIG_IsOK(res4)) {
       SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "VSIFReadL" "', argument " "4"" of type '" "VSILFILE *""'"); 
     }
-    arg4 = reinterpret_cast< VSILFILE * >(argp4);
     {
       if (!arg4) {
         SWIG_exception(SWIG_ValueError,"Received a NULL pointer.");
@@ -30862,7 +30848,6 @@ static swig_type_info _swigt__p_OGRGeometryShadow = {"_p_OGRGeometryShadow", "OG
 static swig_type_info _swigt__p_OGRLayerShadow = {"_p_OGRLayerShadow", "OGRLayerShadow *", 0, 0, (void*)"Geo::OGR::Layer", 0};
 static swig_type_info _swigt__p_OGRStyleTableShadow = {"_p_OGRStyleTableShadow", "OGRStyleTableShadow *", 0, 0, (void*)"Geo::OGR::StyleTable", 0};
 static swig_type_info _swigt__p_OSRSpatialReferenceShadow = {"_p_OSRSpatialReferenceShadow", "OSRSpatialReferenceShadow *", 0, 0, (void*)"Geo::OSR::SpatialReference", 0};
-static swig_type_info _swigt__p_VSILFILE = {"_p_VSILFILE", "VSILFILE *", 0, 0, (void*)"Geo::GDAL::VSILFILE", 0};
 static swig_type_info _swigt__p_VSIStatBufL = {"_p_VSIStatBufL", "VSIStatBufL *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_VSIWriteFunction = {"_p_VSIWriteFunction", "VSIWriteFunction *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *|retStringAndCPLFree *", 0, 0, (void*)0, 0};
@@ -30874,6 +30859,7 @@ static swig_type_info _swigt__p_p_GDALRasterBandShadow = {"_p_p_GDALRasterBandSh
 static swig_type_info _swigt__p_p_GDAL_GCP = {"_p_p_GDAL_GCP", "GDAL_GCP **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_GUIntBig = {"_p_p_GUIntBig", "GUIntBig **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_char = {"_p_p_char", "char **", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_void = {"_p_void", "VSILFILE *|void *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_CPLErrorHandler,
@@ -30907,7 +30893,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_OGRLayerShadow,
   &_swigt__p_OGRStyleTableShadow,
   &_swigt__p_OSRSpatialReferenceShadow,
-  &_swigt__p_VSILFILE,
   &_swigt__p_VSIStatBufL,
   &_swigt__p_VSIWriteFunction,
   &_swigt__p_char,
@@ -30919,6 +30904,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_p_GDAL_GCP,
   &_swigt__p_p_GUIntBig,
   &_swigt__p_p_char,
+  &_swigt__p_void,
 };
 
 static swig_cast_info _swigc__p_CPLErrorHandler[] = {  {&_swigt__p_CPLErrorHandler, 0, 0, 0},{0, 0, 0, 0}};
@@ -30952,7 +30938,6 @@ static swig_cast_info _swigc__p_OGRGeometryShadow[] = {  {&_swigt__p_OGRGeometry
 static swig_cast_info _swigc__p_OGRLayerShadow[] = {  {&_swigt__p_OGRLayerShadow, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OGRStyleTableShadow[] = {  {&_swigt__p_OGRStyleTableShadow, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OSRSpatialReferenceShadow[] = {  {&_swigt__p_OSRSpatialReferenceShadow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_VSILFILE[] = {  {&_swigt__p_VSILFILE, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_VSIStatBufL[] = {  {&_swigt__p_VSIStatBufL, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_VSIWriteFunction[] = {  {&_swigt__p_VSIWriteFunction, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
@@ -30964,6 +30949,7 @@ static swig_cast_info _swigc__p_p_GDALRasterBandShadow[] = {  {&_swigt__p_p_GDAL
 static swig_cast_info _swigc__p_p_GDAL_GCP[] = {  {&_swigt__p_p_GDAL_GCP, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_GUIntBig[] = {  {&_swigt__p_p_GUIntBig, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_char[] = {  {&_swigt__p_p_char, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_void[] = {  {&_swigt__p_void, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_CPLErrorHandler,
@@ -30997,7 +30983,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_OGRLayerShadow,
   _swigc__p_OGRStyleTableShadow,
   _swigc__p_OSRSpatialReferenceShadow,
-  _swigc__p_VSILFILE,
   _swigc__p_VSIStatBufL,
   _swigc__p_VSIWriteFunction,
   _swigc__p_char,
@@ -31009,6 +30994,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_p_GDAL_GCP,
   _swigc__p_p_GUIntBig,
   _swigc__p_p_char,
+  _swigc__p_void,
 };
 
 
@@ -31636,7 +31622,6 @@ XS(SWIG_init) {
     GDALAllRegister();
   }
   
-  SWIG_TypeClientData(SWIGTYPE_p_VSILFILE, (void*) "Geo::GDAL::VSILFILE");
   SWIG_TypeClientData(SWIGTYPE_p_GDALMajorObjectShadow, (void*) "Geo::GDAL::MajorObject");
   SWIG_TypeClientData(SWIGTYPE_p_GDALDriverShadow, (void*) "Geo::GDAL::Driver");
   SWIG_TypeClientData(SWIGTYPE_p_GDAL_GCP, (void*) "Geo::GDAL::GCP");

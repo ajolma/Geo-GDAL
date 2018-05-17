@@ -6,20 +6,7 @@ use ExtUtils::MakeMaker;
 use Config;
 use Cwd;
 use PkgConfig;
-use Alien::gdal;
-
-my $o = PkgConfig->find('gdal');
-if ($o->errmsg) {
-    my $dir = Alien::gdal->dist_dir;
-    my %options = (search_path_override => [$dir . '/lib/pkgconfig']);
-    $o = PkgConfig->find('gdal', %options);
-}
-if ($o->errmsg) {
-    die $o->errmsg;
-}
-my $prefix = $o->get_var('prefix');
-my $libdir = $o->get_var('libdir');
-my @cflags = $o->get_cflags;
+use Alien::Base::Wrapper qw(Alien::gdal !export);
 
 my $objects = { 
     'Geo::GDAL' => 'gdal_wrap.o',
@@ -39,13 +26,36 @@ for my $module (sort keys %$objects) {
     
     $PM{'lib/Geo/GNM.pm'} = '$(INST_LIBDIR)/GNM.pm' if $objects->{'Geo::GNM'};
 
-    WriteMakefile( NAME => $module,
-                   VERSION_FROM => 'lib/Geo/GDAL.pm',
-                   ABSTRACT => 'Perl extension for the GDAL library for geospatial data',
-                   AUTHOR => 'Ari Jolma <ari.jolma at gmail.com>',
-                   MAKEFILE => 'Makefile_'.$add,
-                   LIBS => ["-L$libdir -lgdal"],
-                   CCFLAGS => "@cflags",
-                   OBJECT => $objects->{$module},
-                   PM => \%PM );
+    WriteMakefile( 
+        NAME => $module,
+        VERSION_FROM => 'lib/Geo/GDAL.pm',
+        ABSTRACT => 'Perl extension for the GDAL library for geospatial data',
+        AUTHOR => 'Ari Jolma <ari.jolma at gmail.com>',
+        MAKEFILE => 'Makefile_'.$add,
+        OBJECT => $objects->{$module},
+        PM => \%PM,
+        LICENSE => "artistic_2",
+        Alien::Base::Wrapper->mm_args,
+        CONFIGURE_REQUIRES => {
+            'Alien::gdal' => 0
+        },
+        PREREQ_PM => {
+            'Alien::gdal' => 0,
+            'PDL' => 0
+        },
+        TEST_REQUIRES => {
+            'Test::More' => 0,
+            'JSON' => 0,
+            'Data::Dumper' => 0
+        },
+        META_MERGE => {
+            "meta-spec" => { version => 2 },
+            resources => {
+                repository => {
+                    type => 'git',
+                    url => 'git://github.com/ajolma/Geo-GDAL.git',
+                    web => 'https://github.com/ajolma/Geo-GDAL',
+                },
+            },
+        },);
 }

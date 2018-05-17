@@ -1,9 +1,9 @@
 all: build
 
-Makefiles:
+Makefile_Geo__GDAL:
 	perl Makefile.PL
 
-build: Makefiles
+build: Makefile_Geo__GDAL
 	$(MAKE) -f Makefile_Geo__GDAL
 	$(MAKE) -f Makefile_Geo__GDAL__Const
 	$(MAKE) -f Makefile_Geo__OSR
@@ -11,7 +11,7 @@ build: Makefiles
 	if [ -f Makefile_Geo__GNM ]; then $(MAKE) -f Makefile_Geo__GNM; fi
 
 test: build
-	$(MAKE) -f Makefiles test
+	$(MAKE) -f Makefile_Geo__GDAL test
 
 install: build
 	$(MAKE) -f Makefile_Geo__GDAL install

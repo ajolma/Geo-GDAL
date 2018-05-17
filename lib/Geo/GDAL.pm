@@ -180,25 +180,6 @@ package Geo::GDAL;
 *wrapper_GDALBuildVRT_objects = *Geo::GDALc::wrapper_GDALBuildVRT_objects;
 *wrapper_GDALBuildVRT_names = *Geo::GDALc::wrapper_GDALBuildVRT_names;
 
-############# Class : Geo::GDAL::VSILFILE ##############
-
-package Geo::GDAL::VSILFILE;
-use vars qw(@ISA %OWNER %ITERATORS %BLESSEDMEMBERS);
-@ISA = qw( Geo::GDAL );
-%OWNER = ();
-sub DISOWN {
-    my $self = shift;
-    my $ptr = tied(%$self);
-    delete $OWNER{$ptr};
-}
-
-sub ACQUIRE {
-    my $self = shift;
-    my $ptr = tied(%$self);
-    $OWNER{$ptr} = 1;
-}
-
-
 ############# Class : Geo::GDAL::MajorObject ##############
 
 package Geo::GDAL::MajorObject;
