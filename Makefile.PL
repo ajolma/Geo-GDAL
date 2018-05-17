@@ -26,6 +26,8 @@ for my $module (sort keys %$objects) {
     
     $PM{'lib/Geo/GNM.pm'} = '$(INST_LIBDIR)/GNM.pm' if $objects->{'Geo::GNM'};
 
+    my @meta = $module eq 'xGeo::GDAL' ? () : (NO_META => 1, NO_MYMETA => 1);
+
     WriteMakefile( 
         NAME => $module,
         VERSION_FROM => 'lib/Geo/GDAL.pm',
@@ -58,6 +60,6 @@ for my $module (sort keys %$objects) {
                 },
             },
         },
-        NO_META => 1
+        @meta
     );
 }
