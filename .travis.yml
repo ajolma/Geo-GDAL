@@ -1,32 +1,14 @@
 # This is the config file for building and testing Geo::GDAL with Travis-ci.org
 
-#sudo: required
-#dist: trusty
-#
-
 os:
   - linux
-#  - osx
 
 language: perl
 perl:
   - "5.10"
 
 before_install:
-  - sudo apt-get install libexpat-dev libpq-dev pdl
-  - cpanm Alien::Build
-  - cpanm ExtUtils::MakeMaker
-  - cpanm HTTP::Tiny
-  - cpanm PkgConfig
-  - cpanm Sort::Versions
-  - svn co https://github.com/shawnlaffan/perl-alien-gdal.git/trunk alien-gdal
-  - cd alien-gdal
-  - export FORCE_DYNAMIC=1
-  - perl Makefile.PL
-  - make | perl -ane '$|=1;print "."'
-  - make install
-  - cd ..
-  - rm -rf alien-gdal
+  - sudo apt-get install pdl
 
 install:
   - cpanm -v --installdeps --notest .
