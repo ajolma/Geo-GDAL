@@ -20,7 +20,7 @@ install: build
 	if [ -f Makefile_Geo__OGR ]; then $(MAKE) -f Makefile_Geo__OGR install; fi
 	if [ -f Makefile_Geo__GNM ]; then $(MAKE) -f Makefile_Geo__GNM install; fi
 
-dist: Makefiles
+dist: Makefile_Geo__GDAL
 	$(MAKE) -f Makefile_Geo__GDAL dist
 
 clean:

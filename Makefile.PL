@@ -57,5 +57,7 @@ for my $module (sort keys %$objects) {
                     web => 'https://github.com/ajolma/Geo-GDAL',
                 },
             },
-        },);
+        },
+        NO_META => 1
+    );
 }

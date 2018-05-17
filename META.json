@@ -1,0 +1,57 @@
+{
+   "abstract" : "Perl extension for the GDAL library for geospatial data",
+   "author" : [
+      "Ari Jolma <ari.jolma at gmail.com>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010",
+   "license" : [
+      "artistic_2"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Geo-OSR",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "inc"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Alien::gdal" : "0"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Alien::gdal" : "0",
+            "PDL" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Data::Dumper" : "0",
+            "JSON" : "0",
+            "Test::More" : "0"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/ajolma/Geo-GDAL.git",
+         "web" : "https://github.com/ajolma/Geo-GDAL"
+      }
+   },
+   "version" : "2.0300",
+   "x_serialization_backend" : "JSON::PP version 2.27400_02"
+}
